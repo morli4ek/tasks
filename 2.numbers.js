@@ -6,17 +6,17 @@
 якщо передано не число функція виводить в консоль повідомленя про помилку
 
 */
+
 const  checkNumber = (number) => {
     
     const isNumber = typeof(number) === 'number';
 
-    if(!isNumber) {
-        console.log(number + "is not a number");
-        return
+    if (!isNumber) {
+        return "number is not a number"
     }
 
     if(number > 0) {
-        return "number is positive"
+        return "number is positive dfds"
     } 
     if (number < 0 ) {
         return "number is negative" 
@@ -29,9 +29,30 @@ const  checkNumber = (number) => {
 
 // tests
 
-console.log(checkNumber(12))
-console.log(checkNumber(0))
-console.log(checkNumber(-12))
-console.log(checkNumber("0"))
-console.log(checkNumber(["0"]))
-console.log(checkNumber({ test: "0"}))
+const test = ( condition ) => {
+     if (condition) {
+         console.log('test PASS');
+         return;
+     }
+    console.log('test FAIL')
+}
+
+test(checkNumber(12) === 'number is positive')
+test(checkNumber(0) ===  "number is 0")
+test(checkNumber(-10) === "number is negative")
+test(checkNumber('string') === "number is not a number") 
+
+
+
+/*
+
+if ( умова ) {
+
+} else if ( умова ) {
+
+} else {
+
+}
+
+
+*/
