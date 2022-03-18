@@ -1,31 +1,73 @@
+body {
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #15141a;
+    color: #fff;
+}
+
+.container {
+    text-align: center;
+    margin-top: 10%;
+}
+
+.title {
+     letter-spacing: 4px;
+}
+
 .play-button {
-    color: red;
-    background-color: black;
+    color: #fff;
+    background-color: #e06633;
     font-size: 32px;
+    font-weight: normal;
     border:none ;
     border-radius: 4px;
-    padding: 10px 50px;
-    margin: 50px 0;
+    padding: 10px 85px;
     cursor: pointer;
 }
  
 .play-button:hover {
-    background-color: green;
+    opacity: 0.7;
     color: white;
-    transition: all 1s;
+    transition: all .5s;
 }
 
 .key {
-    border: 1px solid gray;
-    background-color: aqua;
+    border: none;
+    background-color: #e06633;
+    height: 50px;
+    width: 50px;
     font-size: 16px;
     padding: 10px;
     border-radius: 64px;
     cursor:pointer ;
+    margin-right: 8px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .key:hover {
-    background-color: green;
+    opacity: 0.7;
     color: white;
-    transition: all 1s;
+    transition: all 0.5s;
+}
+
+.result-block {
+    font-size: 35px;
+    padding: 50px 0;
+    font-weight: bold;
+}
+
+.result-block {
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+}
+
+.selected-number, .random-number, .result {
+    display: inline-block;
+    border: 1px solid #e06633;
+    padding: 5px 10px;
+    min-width: 50px;
+    min-height: 40px;
+    margin: 0 15px;
 }
