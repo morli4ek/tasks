@@ -1,19 +1,23 @@
+let selectedNumber;
+const resultBlock = document.querySelector(".result");
+
 const selectNumber = (number) => {
-    const selectedNumber = number;
-    console.log(selectedNumber)
+    selectedNumber = number;
 }
 
 const generatePlayNumber = () => {
-    const randomNumber =  Math.random()*10
-    return Math.round(randomNumber)
+    const randomNumber =  Math.random()*3 + 1;
+    return Math.round(randomNumber);
 }
 
 const play = () => {
-    console.log('play')
-     generatePlayNumber()
+    const randomNumber = generatePlayNumber();
+
+    if (randomNumber === selectedNumber) {
+        resultBlock.innerHTML = "Win";
+    } else {
+        resultBlock.innerHTML = "lose";
+    }
 }
- 
-play()
-//  console.log(generatePlayNumber() )
 
 
