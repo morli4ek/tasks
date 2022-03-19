@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoping list</title>
+</head>
+<body>
+   <div class="container">
+       <div class="shoping-list">
+           <div class="shoping-list-item">
+               <span class="product-name">яблуко</span>
+               <span class="product-price">25</span>
+               <button class="delete-button">delete</button>
+           </div>
+       </div>
+       <div class="result">
+           <input type="text" class="new-product-name" placeholder="товар">
+           <input type="number" class="new-product-price" placeholder="ціна">
+           <button class="add" onclick="addNewProduct()">+</button>
+           <div class="sum">
+               <span class="sum-label">сума: </span>
+               <span class="sum-value">...</span>
+           </div>
+       </div>
+   </div> 
+   <script src="shoping-list.js"></script>
+</body>
+</html>
