@@ -24,9 +24,8 @@ const addNewProduct = () => {
         productPriceInput.value = undefined;
     };
     console.log(productList);
-    createShopingListItem(newProduct.name, newProduct.price)
+    createListItem(newProduct.name, newProduct.price)
 }
-
 
 const deleteListItem = (event) => {
     const id = event.target.id;
