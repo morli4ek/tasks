@@ -32,26 +32,39 @@ const createListItem = (name, price) => {
     deleteButton.id = generateProductId();
     deleteButton.addEventListener('click', deleteListItem)
 
-
     shopingListItem.appendChild(deleteButton);
     shopingList.appendChild(shopingListItem);
 }
 
+const clearInputs = () => {
+    productNameInput.value = ""; 
+    productPriceInput.value = "";
+}
+
 const addNewProduct = () => {
+    const isInputsInvalid = productPriceInput.value === "" || productNameInput.value === "";
+
+    if (isInputsInvalid) {
+        console.log("data error");       
+        clearInputs();
+        return;
+    }
+
     const newProduct = {
         id:generateProductId(),
         name: productNameInput.value,
         price: productPriceInput.value
     }
 
-    if(newProduct.name && newProduct.price) {
+    if (newProduct.name && newProduct.price) {
         productList.push(newProduct);
-        productNameInput.value = ""; 
-        productPriceInput.value = undefined;
+        clearInputs();
     };
+
     console.log(productList);
     createListItem(newProduct.name, newProduct.price)
 }
+
 const deleteAll = () => {
     shopingList.innerHTML = "";
 }
