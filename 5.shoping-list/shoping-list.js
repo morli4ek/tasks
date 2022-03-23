@@ -1,6 +1,8 @@
 const productNameInput = document.querySelector (".new-product-name");
 const productPriceInput = document.querySelector (".new-product-price");
 const productNameItem = document.querySelector (".product-name"); 
+const shopingList = document.querySelector(".shoping-list")
+
 const productList = [];
 
 let productName;
@@ -18,12 +20,9 @@ const deleteListItem = (event) => {
 }
 
 const createListItem = (name, price) => {
-
-    const shopingList = document.querySelector(".shoping-list")
     // create element
     const shopingListItem = document.createElement("div");
     shopingListItem.classList.add('shoping-list-item');
-    // shopingListItem.id = 
     shopingListItem.innerHTML = name + ' ' + price
 
     //create delete button
@@ -52,4 +51,7 @@ const addNewProduct = () => {
     };
     console.log(productList);
     createListItem(newProduct.name, newProduct.price)
+}
+const deleteAll = () => {
+    shopingList.innerHTML = "";
 }
