@@ -11,29 +11,13 @@ const generateProductId = () => {
     return Math.round(randomNumber);
 };
 
-const addNewProduct = () => {
-    const newProduct = {
-        id:generateProductId(),
-        name: productNameInput.value,
-        price: productPriceInput.value
-    }
-
-    if(newProduct.name && newProduct.price) {
-        productList.push(newProduct);
-        productNameInput.value = ""; 
-        productPriceInput.value = undefined;
-    };
-    console.log(productList);
-    createListItem(newProduct.name, newProduct.price)
-}
-
 const deleteListItem = (event) => {
     const id = event.target.id;
     deletedItem = document.getElementById(id).parentElement;
     deletedItem.parentElement.removeChild(deletedItem)
 }
 
-const createShopingListItem = (name, price) => {
+const createListItem = (name, price) => {
 
     const shopingList = document.querySelector(".shoping-list")
     // create element
@@ -52,4 +36,20 @@ const createShopingListItem = (name, price) => {
 
     shopingListItem.appendChild(deleteButton);
     shopingList.appendChild(shopingListItem);
+}
+
+const addNewProduct = () => {
+    const newProduct = {
+        id:generateProductId(),
+        name: productNameInput.value,
+        price: productPriceInput.value
+    }
+
+    if(newProduct.name && newProduct.price) {
+        productList.push(newProduct);
+        productNameInput.value = ""; 
+        productPriceInput.value = undefined;
+    };
+    console.log(productList);
+    createListItem(newProduct.name, newProduct.price)
 }
