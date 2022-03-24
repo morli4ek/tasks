@@ -1,10 +1,12 @@
 const productNameInput = document.querySelector (".new-product-name");
 const productPriceInput = document.querySelector (".new-product-price");
 const productNameItem = document.querySelector (".product-name"); 
-const shopingList = document.querySelector(".shoping-list")
+const shopingList = document.querySelector(".shoping-list");
+const totalPriceBlock = document.querySelector(".sum-value")
 
 const productList = [];
 
+let totalPrice = 0;
 let productName;
 let productPrice;
 
@@ -16,14 +18,22 @@ const generateProductId = () => {
 const deleteListItem = (event) => {
     const id = event.target.id;
     deletedItem = document.getElementById(id).parentElement;
-    deletedItem.parentElement.removeChild(deletedItem)
+    const price = deletedItem.querySelector('.item-price').innerHTML;
+    totalPrice = totalPrice - Number(price);
+    totalPriceBlock.innerHTML = totalPrice;
+    deletedItem.parentElement.removeChild(deletedItem);
 }
 
 const createListItem = (name, price) => {
-    // create element
+    // create item element
     const shopingListItem = document.createElement("div");
     shopingListItem.classList.add('shoping-list-item');
-    shopingListItem.innerHTML = name + ' ' + price
+    shopingListItem.innerHTML = name;
+
+    // create price span in item element
+    const priceBlock = document.createElement('span');
+    priceBlock.classList.add('item-price');
+    priceBlock.innerHTML = price;
 
     //create delete button
     const deleteButton = document.createElement("button");
@@ -32,6 +42,8 @@ const createListItem = (name, price) => {
     deleteButton.id = generateProductId();
     deleteButton.addEventListener('click', deleteListItem)
 
+    // add elements in document
+    shopingListItem.appendChild(priceBlock);
     shopingListItem.appendChild(deleteButton);
     shopingList.appendChild(shopingListItem);
 }
@@ -42,7 +54,7 @@ const clearInputs = () => {
 }
 
 const addNewProduct = () => {
-    const isInputsInvalid = productPriceInput.value === "" || productNameInput.value === "";
+    const isInputsInvalid = productPriceInput.value === "" || productNameInput.value === "" || productPriceInput.value < 0;
 
     if (isInputsInvalid) {
         console.log("data error");       
@@ -58,6 +70,8 @@ const addNewProduct = () => {
 
     if (newProduct.name && newProduct.price) {
         productList.push(newProduct);
+        totalPrice = totalPrice + Number(newProduct.price);
+        totalPriceBlock.innerHTML = totalPrice;
         clearInputs();
     };
 
@@ -67,4 +81,6 @@ const addNewProduct = () => {
 
 const deleteAll = () => {
     shopingList.innerHTML = "";
+    totalPrice = 0
+    totalPriceBlock.innerHTML = 0
 }
