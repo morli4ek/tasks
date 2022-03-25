@@ -16,7 +16,7 @@ const  checkNumber = (number) => {
     }
 
     if(number > 0) {
-        return "number is positive dfds"
+        return "number is positive "
     } 
     if (number < 0 ) {
         return "number is negative" 
