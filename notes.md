@@ -1,3 +1,28 @@
+# Типи данних
+
+## string
+
+пишеться ЗАВЖДИ в лапках ('hello' "hello" `hello`) 
+
+це строки '0' '11' '{name: 123}'
+
+## number
+
+## boolean
+
+true/false
+
+## unefined
+
+let user; 
+console.log(user) /// undefined
+
+## null
+let user = null
+
+## Object
+
+
 # Константа та змінна
 
 ## константа
