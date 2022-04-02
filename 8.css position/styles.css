@@ -1,0 +1,26 @@
+.block-container {
+    position: relative;
+    background-color: green;
+    margin: 5%;
+    padding: 2%;
+}
+
+.my {
+    position: fixed;
+    top: 5px;
+    left: 25px;
+    z-index: 0;
+}
+
+
+.block {
+    width: 150px;
+    height: auto;
+    border: 1px solid gray;
+    background-color: lightgray;
+    padding: 10px;
+}
+
+.block img {
+    max-width: 100%;
+}
